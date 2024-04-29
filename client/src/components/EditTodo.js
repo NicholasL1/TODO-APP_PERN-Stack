@@ -8,14 +8,11 @@ export default function EditTodo({ todo }) {
     e.preventDefault(); //Prevents refresh upon method call
     try {
       const newDescription = { description };
-      const response = await fetch(
-        `http://localhost:5001/todos/${todo.todo_id}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newDescription),
-        }
-      );
+      await fetch(`http://localhost:5001/todos/${todo.todo_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newDescription),
+      });
 
       window.location = "/"; // Refreshes the current page
     } catch (err) {
@@ -27,7 +24,7 @@ export default function EditTodo({ todo }) {
     <Fragment>
       <button
         type="button"
-        class="btn btn-warning"
+        className="btn btn-warning"
         data-toggle="modal"
         data-target={`#id${todo.todo_id}`}
       >
@@ -35,17 +32,17 @@ export default function EditTodo({ todo }) {
       </button>
 
       <div
-        class="modal"
+        className="modal"
         id={`id${todo.todo_id}`}
         onClick={() => setDescription(todo.description)}
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Edit Todo</h4>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">Edit Todo</h4>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 onClick={() => setDescription(todo.description)}
               >
@@ -53,7 +50,7 @@ export default function EditTodo({ todo }) {
               </button>
             </div>
 
-            <div class="modal-body">
+            <div className="modal-body">
               <input
                 type="text"
                 className="form-control"
@@ -62,10 +59,10 @@ export default function EditTodo({ todo }) {
               />
             </div>
 
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-warning"
+                className="btn btn-warning"
                 data-dismiss="modal"
                 onClick={(e) => updateDescription(e)}
               >
@@ -73,7 +70,7 @@ export default function EditTodo({ todo }) {
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-dismiss="modal"
                 onClick={() => setDescription(todo.description)}
               >
