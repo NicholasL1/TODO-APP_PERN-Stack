@@ -8,7 +8,7 @@ This project is a todo application created with the PERN (PostgreSQL, Express, R
 
 # HOW IT WAS BUILT:
 
-The project is broken into a client side and server side of the application, both deployed using vercel. The client side of the application was created using React.
+The project is broken into a client side and server side of the application, both deployed using vercel. The client side of the application was created using React and bootstrap.
 
 The server side of the application was built using express and node to create a RESTful API, which routes the DB requests to a PostgreSQL DB. The app integrates the PostgreSQL DB with an AWS RDS for global usage.
 
