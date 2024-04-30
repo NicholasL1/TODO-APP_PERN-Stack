@@ -8,11 +8,11 @@ const Pool = require("pg").Pool;
 // For env variabke usage, do process.env.VARIABLE
 
 const pool = new Pool({
-  user: "postgres",
-  password: "PERNTODO109283",
-  host: "perntodo-database.c3s2mu6egsgs.us-east-2.rds.amazonaws.com",
+  user: process.env.RDS_USER,
+  password: process.env.RDS_PASSWORD,
+  host: process.env.RDS_HOST,
   port: 5432,
-  database: process.env.PG_DATABASE,
+  database: process.env.RDS_DATABASE,
 });
 
 module.exports = pool;
