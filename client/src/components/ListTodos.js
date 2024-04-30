@@ -7,7 +7,7 @@ export default function ListTodos() {
   //Delete todo function
   const deleteTodo = async (id) => {
     try {
-      await fetch(`http://localhost:5001/todos/${id}`, {
+      await fetch(`https://todo-app-pern-stack-server.vercel.app/todos/${id}`, {
         method: "DELETE",
       });
 
@@ -19,7 +19,9 @@ export default function ListTodos() {
 
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5001/todos");
+      const response = await fetch(
+        "https://todo-app-pern-stack-server.vercel.app/todos"
+      );
       const jsonData = await response.json();
 
       setTodos(jsonData);

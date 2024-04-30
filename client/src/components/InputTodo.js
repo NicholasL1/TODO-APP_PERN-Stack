@@ -7,7 +7,7 @@ export default function InputTodo() {
     e.preventDefault();
     try {
       const body = { description };
-      await fetch("http://localhost:5001/todos", {
+      await fetch("https://todo-app-pern-stack-server.vercel.app/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

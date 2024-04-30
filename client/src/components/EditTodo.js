@@ -8,11 +8,14 @@ export default function EditTodo({ todo }) {
     e.preventDefault(); //Prevents refresh upon method call
     try {
       const newDescription = { description };
-      await fetch(`http://localhost:5001/todos/${todo.todo_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newDescription),
-      });
+      await fetch(
+        `https://todo-app-pern-stack-server.vercel.app/todos/${todo.todo_id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newDescription),
+        }
+      );
 
       window.location = "/"; // Refreshes the current page
     } catch (err) {
